@@ -170,6 +170,10 @@ static int setCompDefaults(struct jpeg_compress_struct *cinfo,
 		case TJPF_XBGR:
 		case TJPF_ABGR:
 			cinfo->in_color_space=JCS_EXT_XBGR;  break;
+    case TJPF_GRAY_ALPHA:
+      cinfo->in_color_space=JCS_RGB;
+      cinfo->write_Gray_alpha = TRUE;
+      break;
 		#else
 		case TJPF_RGB:
 			if(RGB_RED==0 && RGB_GREEN==1 && RGB_BLUE==2 && RGB_PIXELSIZE==3)

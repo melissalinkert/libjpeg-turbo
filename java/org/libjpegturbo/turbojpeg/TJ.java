@@ -109,7 +109,7 @@ final public class TJ {
   /**
    * The number of pixel formats
    */
-  final public static int NUMPF   = 11;
+  final public static int NUMPF   = 12;
   /**
    * RGB pixel format.  The red, green, and blue components in the image are
    * stored in 3-byte pixels in the order R, G, B from lowest to highest byte
@@ -180,6 +180,12 @@ final public class TJ {
    */
   final public static int PF_ARGB = 10;
 
+  /**
+   * Gray/Alpha format.  The pixels are packed into an RGB format, where
+   * the red component represents gray and the green component represents
+   * alpha.
+   */
+  final public static int PF_GRAY_ALPHA = 11;
 
   /**
    * Returns the pixel size (in bytes) of the given pixel format.
@@ -195,7 +201,7 @@ final public class TJ {
   }
 
   final private static int pixelSize[] = {
-    3, 3, 4, 4, 4, 4, 1, 4, 4, 4, 4
+    3, 3, 4, 4, 4, 4, 1, 4, 4, 4, 4, 3
   };
 
 
@@ -217,7 +223,7 @@ final public class TJ {
   }
 
   final private static int redOffset[] = {
-    0, 2, 0, 2, 3, 1, 0, 0, 2, 3, 1
+    0, 2, 0, 2, 3, 1, 0, 0, 2, 3, 1, 0
   };
 
 
@@ -239,7 +245,7 @@ final public class TJ {
   }
 
   final private static int greenOffset[] = {
-    1, 1, 1, 1, 2, 2, 0, 1, 1, 2, 2
+    1, 1, 1, 1, 2, 2, 0, 1, 1, 2, 2, 1
   };
 
 
@@ -261,7 +267,7 @@ final public class TJ {
   }
 
   final private static int blueOffset[] = {
-    2, 0, 2, 0, 1, 3, 0, 2, 0, 1, 3
+    2, 0, 2, 0, 1, 3, 0, 2, 0, 1, 3, 2
   };
 
 

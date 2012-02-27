@@ -16,7 +16,6 @@
 #include "jsimd.h"
 #include "config.h"
 
-
 /* Private subobject */
 
 typedef struct {

@@ -381,6 +381,24 @@ emit_jfif_app0 (j_compress_ptr cinfo)
   emit_byte(cinfo, 0);
 }
 
+LOCAL(void)
+emit_gray_alpha_app (j_compress_ptr cinfo)
+{
+  emit_marker(cinfo, M_APP14);
+  emit_2bytes(cinfo, 2 + 12); /* length */
+  emit_byte(cinfo, 0x67);
+  emit_byte(cinfo, 0x72);
+  emit_byte(cinfo, 0x61);
+  emit_byte(cinfo, 0x79);
+  emit_byte(cinfo, 0x20);
+  emit_byte(cinfo, 0x2b);
+  emit_byte(cinfo, 0x20);
+  emit_byte(cinfo, 0x61);
+  emit_byte(cinfo, 0x6c);
+  emit_byte(cinfo, 0x70);
+  emit_byte(cinfo, 0x68);
+  emit_byte(cinfo, 0x61);
+}
 
 LOCAL(void)
 emit_adobe_app14 (j_compress_ptr cinfo)
@@ -481,6 +499,8 @@ write_file_header (j_compress_ptr cinfo)
     emit_jfif_app0(cinfo);
   if (cinfo->write_Adobe_marker) /* next an optional Adobe APP14 */
     emit_adobe_app14(cinfo);
+  if (cinfo->write_Gray_alpha)
+    emit_gray_alpha_app(cinfo);
 }
 
 

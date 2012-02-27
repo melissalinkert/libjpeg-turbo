@@ -20,7 +20,7 @@ extern "C" {
 #undef org_libjpegturbo_turbojpeg_TJ_SAMP_440
 #define org_libjpegturbo_turbojpeg_TJ_SAMP_440 4L
 #undef org_libjpegturbo_turbojpeg_TJ_NUMPF
-#define org_libjpegturbo_turbojpeg_TJ_NUMPF 11L
+#define org_libjpegturbo_turbojpeg_TJ_NUMPF 12L
 #undef org_libjpegturbo_turbojpeg_TJ_PF_RGB
 #define org_libjpegturbo_turbojpeg_TJ_PF_RGB 0L
 #undef org_libjpegturbo_turbojpeg_TJ_PF_BGR
@@ -43,6 +43,8 @@ extern "C" {
 #define org_libjpegturbo_turbojpeg_TJ_PF_ABGR 9L
 #undef org_libjpegturbo_turbojpeg_TJ_PF_ARGB
 #define org_libjpegturbo_turbojpeg_TJ_PF_ARGB 10L
+#undef org_libjpegturbo_turbojpeg_TJ_PF_GRAY_ALPHA
+#define org_libjpegturbo_turbojpeg_TJ_PF_GRAY_ALPHA 11L
 #undef org_libjpegturbo_turbojpeg_TJ_FLAG_BOTTOMUP
 #define org_libjpegturbo_turbojpeg_TJ_FLAG_BOTTOMUP 2L
 #undef org_libjpegturbo_turbojpeg_TJ_FLAG_FORCEMMX

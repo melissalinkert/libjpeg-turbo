@@ -113,7 +113,7 @@ static const int tjMCUHeight[TJ_NUMSAMP] = {8, 8, 16, 8, 16};
 /**
  * The number of pixel formats
  */
-#define TJ_NUMPF 11
+#define TJ_NUMPF 12
 
 /**
  * Pixel formats
@@ -188,7 +188,11 @@ enum TJPF
    * decompressing, the X component is guaranteed to be 0xFF, which can be
    * interpreted as an opaque alpha channel.
    */
-  TJPF_ARGB
+  TJPF_ARGB,
+  /**
+   * Gray/Alpha pixel format.
+   */
+  TJPF_GRAY_ALPHA
 };
 
 /**
@@ -197,7 +201,7 @@ enum TJPF
  * instance, if a pixel of format TJ_BGRX is stored in <tt>char pixel[]</tt>,
  * then the red component will be <tt>pixel[tjRedOffset[TJ_BGRX]]</tt>.
  */
-static const int tjRedOffset[TJ_NUMPF] = {0, 2, 0, 2, 3, 1, 0, 0, 2, 3, 1};
+static const int tjRedOffset[TJ_NUMPF] = {0, 2, 0, 2, 3, 1, 0, 0, 2, 3, 1, 0};
 /**
  * Green offset (in bytes) for a given pixel format.  This specifies the number
  * of bytes that the green component is offset from the start of the pixel.
@@ -205,19 +209,19 @@ static const int tjRedOffset[TJ_NUMPF] = {0, 2, 0, 2, 3, 1, 0, 0, 2, 3, 1};
  * <tt>char pixel[]</tt>, then the green component will be
  * <tt>pixel[tjGreenOffset[TJ_BGRX]]</tt>.
  */
-static const int tjGreenOffset[TJ_NUMPF] = {1, 1, 1, 1, 2, 2, 0, 1, 1, 2, 2};
+static const int tjGreenOffset[TJ_NUMPF] = {1, 1, 1, 1, 2, 2, 0, 1, 1, 2, 2, 1};
 /**
  * Blue offset (in bytes) for a given pixel format.  This specifies the number
  * of bytes that the Blue component is offset from the start of the pixel.  For
  * instance, if a pixel of format TJ_BGRX is stored in <tt>char pixel[]</tt>,
  * then the blue component will be <tt>pixel[tjBlueOffset[TJ_BGRX]]</tt>.
  */
-static const int tjBlueOffset[TJ_NUMPF] = {2, 0, 2, 0, 1, 3, 0, 2, 0, 1, 3};
+static const int tjBlueOffset[TJ_NUMPF] = {2, 0, 2, 0, 1, 3, 0, 2, 0, 1, 3, 2};
 
 /**
  * Pixel size (in bytes) for a given pixel format.
  */
-static const int tjPixelSize[TJ_NUMPF] = {3, 3, 4, 4, 4, 4, 1, 4, 4, 4, 4};
+static const int tjPixelSize[TJ_NUMPF] = {3, 3, 4, 4, 4, 4, 1, 4, 4, 4, 4, 3};
 
 
 /**
